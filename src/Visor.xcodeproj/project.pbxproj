@@ -14,6 +14,7 @@
 		7FC7F74D0A3BBCAA00B52344 /* QSHotKeyEditor.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FC7F74B0A3BBCAA00B52344 /* QSHotKeyEditor.m */; };
 		8D5B49B0048680CD000E48DA /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C167DFE841241C02AAC07 /* InfoPlist.strings */; };
 		8D5B49B4048680CD000E48DA /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7ADFEA557BF11CA2CBB /* Cocoa.framework */; };
+		A39A8A70100D07E4007F6333 /* CopyOnSelect.m in Sources */ = {isa = PBXBuildFile; fileRef = A39A8A6E100D07E4007F6333 /* CopyOnSelect.m */; };
 		D600BAB30F94207800E76344 /* VisorApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = D600BAB20F94207800E76344 /* VisorApplication.m */; };
 		D6248C0F0F94002800E6B44D /* VisorScreenTransformer.m in Sources */ = {isa = PBXBuildFile; fileRef = D6248C0E0F94002800E6B44D /* VisorScreenTransformer.m */; };
 		D6701C2B0F40376F00900D77 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6701C2A0F40376F00900D77 /* QuartzCore.framework */; };
@@ -43,6 +44,8 @@
 		7FC7F74B0A3BBCAA00B52344 /* QSHotKeyEditor.m */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.objc; path = QSHotKeyEditor.m; sourceTree = "<group>"; };
 		8D5B49B6048680CD000E48DA /* Visor.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Visor.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D5B49B7048680CD000E48DA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A39A8A6E100D07E4007F6333 /* CopyOnSelect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CopyOnSelect.m; sourceTree = "<group>"; };
+		A39A8A6F100D07E4007F6333 /* CopyOnSelect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CopyOnSelect.h; sourceTree = "<group>"; };
 		D2F7E65807B2D6F200F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		D600BAB10F94207800E76344 /* VisorApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VisorApplication.h; sourceTree = "<group>"; };
 		D600BAB20F94207800E76344 /* VisorApplication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VisorApplication.m; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				7FC7F74B0A3BBCAA00B52344 /* QSHotKeyEditor.m */,
 				7FB9C2520A2FA9FD0076695A /* VisorWindow.h */,
 				7FB9C2530A2FA9FD0076695A /* VisorWindow.m */,
+				A39A8A6E100D07E4007F6333 /* CopyOnSelect.m */,
+				A39A8A6F100D07E4007F6333 /* CopyOnSelect.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -260,6 +265,7 @@
 				D68AA80C0F374F230094AA92 /* VisorWindowController.m in Sources */,
 				D6248C0F0F94002800E6B44D /* VisorScreenTransformer.m in Sources */,
 				D600BAB30F94207800E76344 /* VisorApplication.m in Sources */,
+				A39A8A70100D07E4007F6333 /* CopyOnSelect.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
