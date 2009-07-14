@@ -14,4 +14,5 @@ Now if you add VTerminal.app to your startup items it will behave slightly diffe
 
 NOTES: To get to application controls without the menu or Dock items present, simply activate Visor and then enter key commands (such as command+N for a New Window, command+T for a New Tab, command+, for the Preferences, or command+Q to Quit).
 
+
 ## Visit [visor.binaryage.com](http://visor.binaryage.com)
