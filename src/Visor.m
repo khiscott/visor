@@ -40,6 +40,15 @@ void displayReconfigurationCallback(CGDirectDisplayID display, CGDisplayChangeSu
     [Visor sharedInstance];
 }
 
+- (void) dealloc
+{
+	[versionString release];
+	versionString = nil;
+	
+	[super dealloc];
+}
+
+
 - (BOOL)status {
     return !!window;
 }
@@ -117,6 +126,10 @@ void displayReconfigurationCallback(CGDirectDisplayID display, CGDisplayChangeSu
 
     // get notified of resolution change
     CGDisplayRegisterReconfigurationCallback(displayReconfigurationCallback, self);
+	
+	//get the version string from the info.plist
+	NSDictionary *infoPlist = [[NSBundle bundleForClass:[self class]] infoDictionary];
+	[self setVersionString:[infoPlist objectForKey:@"CFBundleGetInfoString"]];
     
     return self;
 }
@@ -172,12 +185,22 @@ void displayReconfigurationCallback(CGDirectDisplayID display, CGDisplayChangeSu
     LOG(@"toggleVisor %@", sender);
     if (!window) {
         LOG(@"visor is detached");
-        NSBeep();
-        return;
+		
+		NSDictionary *err = nil;
+		NSAppleScript *activateTerminal = [[[NSAppleScript alloc] initWithSource:@"tell application \"VTerminal\"\nactivate\ndo script\nend tell"] autorelease];
+		[activateTerminal executeAndReturnError:&err];
+		
+		if (err){
+			NSLog(@"applescript error: %@", err);
+		}
+		
+		return;
     }
     if (isHidden) {
+		LOG(@"visor is hidden");
         [self showVisor:false];
     } else {
+		LOG(@"visor is NOT hidden");
         [self restorePreviouslyActiveApp];
         [self hideVisor:false];
     }
@@ -492,7 +515,7 @@ void displayReconfigurationCallback(CGDirectDisplayID display, CGDisplayChangeSu
             [window invalidateShadow];
             [window update];
         }
-        [self showVisor:false];
+		[self showVisor:false];        
     }
 }
 
@@ -584,10 +607,11 @@ void displayReconfigurationCallback(CGDirectDisplayID display, CGDisplayChangeSu
 }
 
 - (BOOL)validateMenuItem:(NSMenuItem*)menuItem {
+	/*Always valid as a new Visor window is automatically created*/
     if ([menuItem action]==@selector(toggleVisor:)){
         [menuItem setKeyEquivalent:stringForCharacter([hotkey keyCode],[hotkey character])];
         [menuItem setKeyEquivalentModifierMask:[hotkey modifierFlags]];
-        return [self status];
+        return YES;
     }
     return YES;
 }
@@ -639,11 +663,21 @@ void displayReconfigurationCallback(CGDirectDisplayID display, CGDisplayChangeSu
         [pinItem setTitle:@"Unpin Visor"];
     
     // update icon
+	/*Always valid as a new Visor window is automatically created
     BOOL status = [self status];
-    if (status)
-        [statusItem setImage:activeIcon];
-    else
-        [statusItem setImage:inactiveIcon];
+    if (status)*/
+	[statusItem setImage:activeIcon];
+    /*else
+        [statusItem setImage:inactiveIcon];*/
+}
+
+#pragma mark Accessors
+- (NSString *)versionString {
+    return versionString; 
+}
+- (void)setVersionString:(NSString *)aVersionString {
+    [versionString autorelease];
+    versionString = [aVersionString retain];
 }
 
 @end

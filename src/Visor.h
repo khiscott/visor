@@ -25,6 +25,8 @@
     NSScreen* cachedScreen;
     NSButton* pinButton;
     NSString* cachedPosition;
+	
+	NSString *versionString;
 }
 + (Visor*)sharedInstance;
 - (BOOL)status;
@@ -50,4 +52,8 @@
 - (void)applyWindowPositioning:(id)window;
 - (void)placeWindow:(id)window offset:(float)offset;
 - (OSStatus)setupExposeTags:(NSWindow*)win;
+
+#pragma mark Accessors
+- (NSString *)versionString;
+- (void)setVersionString:(NSString *)aVersionString;
 @end

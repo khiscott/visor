@@ -10,4 +10,8 @@
     [visor showVisor:false];
 	return FALSE;
 }
+
+- (void)applicationDidFinishLaunching:(NSNotification *)notification; {
+	//HACK - not sure why but just having this implemented causes Visor not to be shown immediately on launch - as desired
+}
 @end
